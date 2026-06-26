@@ -1,0 +1,7 @@
+curl_cffi>=0.7
+fastapi>=0.110
+uvicorn>=0.29
+beautifulsoup4>=4.12
+supabase>=2.0
+chromadb>=0.5
+sentence-transformers>=3.0

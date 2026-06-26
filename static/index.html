@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dispensary Engine — WNY Price Comparison</title>
+<style>
+  :root { --bg:#0d1117; --panel:#161b22; --panel2:#1c2128; --line:#30363d;
+          --green:#3fb950; --green2:#2ea043; --text:#e6edf3; --muted:#8b949e; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  header { padding:28px 20px 10px; text-align:center; }
+  header h1 { margin:0; font-size:30px; }
+  header h1 span { color:var(--green); }
+  header p { color:var(--muted); margin:6px 0 0; }
+  .wrap { max-width:920px; margin:0 auto; padding:20px; }
+  .searchbar { display:flex; gap:10px; margin:18px 0 6px; }
+  .searchbar input { flex:1; padding:14px 16px; border-radius:10px;
+        border:1px solid var(--line); background:var(--panel); color:var(--text); font-size:16px; }
+  .searchbar button { padding:0 22px; border:none; border-radius:10px;
+        background:var(--green2); color:#fff; font-weight:600; cursor:pointer; font-size:15px; }
+  .stats { color:var(--muted); font-size:13px; margin:4px 2px 18px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px;
+          padding:14px 16px; margin-bottom:10px; cursor:pointer; display:flex;
+          justify-content:space-between; align-items:center; gap:14px; }
+  .card:hover { border-color:var(--green); }
+  .card .title { font-weight:600; }
+  .card .meta { color:var(--muted); font-size:13px; margin-top:3px; }
+  .badge { background:var(--panel2); border:1px solid var(--line); color:var(--muted);
+           border-radius:20px; padding:4px 10px; font-size:12px; white-space:nowrap; }
+  .price-range { color:var(--green); font-weight:700; font-size:15px; white-space:nowrap; }
+  .ladder-row { display:grid; grid-template-columns:28px 1fr auto auto; gap:12px;
+          align-items:center; padding:12px 14px; border:1px solid var(--line);
+          border-radius:10px; margin-bottom:8px; background:var(--panel); }
+  .ladder-row.best { border-color:var(--green); background:linear-gradient(90deg,#11261a,#161b22); }
+  .rank { color:var(--muted); font-weight:700; text-align:center; }
+  .disp { font-weight:600; }
+  .best-tag { color:var(--green); font-size:11px; font-weight:700; letter-spacing:.5px; }
+  .strike { color:var(--muted); text-decoration:line-through; font-size:13px; margin-right:6px; }
+  .price { font-weight:700; font-size:17px; }
+  .visit { background:var(--green2); color:#fff; text-decoration:none; border-radius:8px;
+           padding:7px 14px; font-size:13px; font-weight:600; }
+  .back { color:var(--muted); cursor:pointer; display:inline-block; margin-bottom:14px; }
+  .back:hover { color:var(--green); }
+  h2.prodtitle { margin:4px 0 2px; }
+  .savings { color:var(--green); font-size:14px; margin:0 0 16px; }
+  .empty { color:var(--muted); text-align:center; padding:40px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Dispensary <span>Engine</span></h1>
+  <p>Data-Driven Cannabis Price Comparison — Western New York &nbsp;·&nbsp;
+     <a href="/dispensaries" style="color:var(--green);text-decoration:none;font-size:14px">Browse Dispensaries →</a>
+  </p>
+</header>
+<div class="wrap">
+  <div class="searchbar">
+    <input id="q" placeholder="Search products, brands, strains…" autofocus/>
+    <button onclick="doSearch()">Search</button>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div id="results"></div>
+</div>
+
+<script>
+async function loadStats() {
+  const s = await (await fetch('/api/stats')).json();
+  document.getElementById('stats').textContent =
+    `${s.canonical_products} products · ${s.priced_listings} priced listings · `
+    + `${s.multi_dispensary} products available at 2+ dispensaries · ${s.dispensaries} dispensaries`;
+}
+async function doSearch() {
+  const q = document.getElementById('q').value.trim();
+  const res = await (await fetch('/api/search?q=' + encodeURIComponent(q))).json();
+  const el = document.getElementById('results');
+  if (!res.results.length) { el.innerHTML = '<div class="empty">No products found.</div>'; return; }
+  el.innerHTML = res.results.map(r => {
+    const range = r.price_min === r.price_max
+      ? `$${r.price_min.toFixed(2)}`
+      : `$${r.price_min.toFixed(2)} – $${r.price_max.toFixed(2)}`;
+    return `<div class="card" onclick="compare('${r.mcp_id}')">
+      <div>
+        <div class="title">${r.canonical_title}</div>
+        <div class="meta">${r.normalized_brand || ''} · ${r.normalized_category || ''} ${r.normalized_size ? '· '+r.normalized_size : ''}</div>
+      </div>
+      <div style="text-align:right">
+        <div class="price-range">${range}</div>
+        <span class="badge">${r.offering_count} shop${r.offering_count>1?'s':''}</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+async function compare(mcpId) {
+  const d = await (await fetch('/api/compare/' + mcpId)).json();
+  const el = document.getElementById('results');
+  const savings = (d.price_max && d.price_min && d.price_max > d.price_min)
+    ? `Save up to $${(d.price_max - d.price_min).toFixed(2)} `
+      + `(${Math.round((d.price_max-d.price_min)/d.price_max*100)}%) by choosing the best value`
+    : '';
+  const rows = d.offers.map((o, i) => {
+    const eff = o.effective_price != null ? `$${o.effective_price.toFixed(2)}` : '—';
+    const strike = (o.sale_price && o.price && o.sale_price < o.price)
+      ? `<span class="strike">$${o.price.toFixed(2)}</span>` : '';
+    return `<div class="ladder-row ${i===0?'best':''}">
+      <div class="rank">${i+1}</div>
+      <div><div class="disp">${o.dispensary_name}</div>${i===0?'<div class="best-tag">BEST VALUE</div>':''}</div>
+      <div class="price">${strike}${eff}</div>
+      ${o.product_url ? `<a class="visit" href="${o.product_url}" target="_blank">View</a>` : '<span class="badge">in stock</span>'}
+    </div>`;
+  }).join('');
+  el.innerHTML = `<span class="back" onclick="doSearch()">← Back to results</span>
+    <h2 class="prodtitle">${d.product.canonical_title}</h2>
+    <div class="meta" style="color:var(--muted);margin-bottom:6px">
+      ${d.product.normalized_brand || ''} · ${d.product.normalized_category || ''}
+      ${d.product.normalized_size ? '· '+d.product.normalized_size : ''} · available at ${d.offer_count} dispensar${d.offer_count>1?'ies':'y'}</div>
+    ${savings ? `<p class="savings">${savings}</p>` : ''}
+    ${rows}`;
+}
+document.getElementById('q').addEventListener('keydown', e => { if (e.key==='Enter') doSearch(); });
+loadStats();
+</script>
+</body>
+</html>

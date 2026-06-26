@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dispensaries — Dispensary Engine WNY</title>
+<style>
+  :root { --bg:#0d1117; --panel:#161b22; --panel2:#1c2128; --line:#30363d;
+          --green:#3fb950; --green2:#2ea043; --text:#e6edf3; --muted:#8b949e;
+          --blue:#58a6ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
+  header { padding:22px 20px 10px; border-bottom:1px solid var(--line); }
+  .header-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+  .logo { font-size:22px; font-weight:700; text-decoration:none; color:var(--text); }
+  .logo span { color:var(--green); }
+  nav a { color:var(--muted); text-decoration:none; margin-left:20px; font-size:14px; }
+  nav a:hover { color:var(--green); }
+  nav a.active { color:var(--green); }
+  .wrap { max-width:1100px; margin:0 auto; padding:28px 20px; }
+  h1 { margin:0 0 4px; font-size:26px; }
+  .sub { color:var(--muted); font-size:14px; margin-bottom:22px; }
+  .filters { display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap; }
+  .filters input { padding:10px 14px; border-radius:8px; border:1px solid var(--line);
+        background:var(--panel); color:var(--text); font-size:14px; width:280px; }
+  .filter-btn { padding:8px 14px; border-radius:8px; border:1px solid var(--line);
+        background:var(--panel); color:var(--muted); font-size:13px; cursor:pointer; }
+  .filter-btn.active { border-color:var(--green); color:var(--green); }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:12px;
+          padding:18px; text-decoration:none; color:var(--text); display:block;
+          transition:border-color .15s; }
+  .card:hover { border-color:var(--green); }
+  .card-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; }
+  .card-name { font-size:16px; font-weight:700; }
+  .plat-badge { font-size:11px; padding:3px 8px; border-radius:20px;
+        background:var(--panel2); border:1px solid var(--line); color:var(--muted);
+        white-space:nowrap; text-transform:uppercase; letter-spacing:.5px; }
+  .card-addr { color:var(--muted); font-size:13px; line-height:1.5; margin-bottom:8px; }
+  .card-meta { display:flex; gap:12px; flex-wrap:wrap; }
+  .meta-item { font-size:12px; color:var(--muted); display:flex; align-items:center; gap:4px; }
+  .meta-item a { color:var(--blue); text-decoration:none; }
+  .meta-item a:hover { text-decoration:underline; }
+  .product-count { font-size:13px; color:var(--green); font-weight:600; margin-top:8px; }
+  .empty { color:var(--muted); text-align:center; padding:60px; }
+  .count { color:var(--muted); font-size:13px; margin-bottom:10px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Dispensary <span>Engine</span></a>
+    <nav>
+      <a href="/">Search</a>
+      <a href="/dispensaries" class="active">Dispensaries</a>
+    </nav>
+  </div>
+</header>
+<div class="wrap">
+  <h1>WNY Dispensary Directory</h1>
+  <p class="sub">All licensed dispensaries in Western New York — click any card to see their full menu.</p>
+  <div class="filters">
+    <input type="text" id="search" placeholder="Filter by name, city…" oninput="filterCards()"/>
+    <button class="filter-btn active" data-plat="all" onclick="setPlatform(this,'all')">All Platforms</button>
+    <button class="filter-btn" data-plat="dutchie" onclick="setPlatform(this,'dutchie')">Dutchie</button>
+    <button class="filter-btn" data-plat="carrot" onclick="setPlatform(this,'carrot')">Carrot</button>
+    <button class="filter-btn" data-plat="proteus" onclick="setPlatform(this,'proteus')">Proteus</button>
+  </div>
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"><div class="empty">Loading…</div></div>
+</div>
+
+<script>
+let allDispensaries = [];
+let activePlat = 'all';
+
+async function loadDispensaries() {
+  const res = await (await fetch('/api/dispensaries')).json();
+  allDispensaries = res.dispensaries;
+  renderGrid();
+}
+
+function setPlatform(btn, plat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activePlat = plat;
+  renderGrid();
+}
+
+function filterCards() { renderGrid(); }
+
+function renderGrid() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const filtered = allDispensaries.filter(d => {
+    if (activePlat !== 'all' && d.platform !== activePlat) return false;
+    if (q) {
+      const blob = (d.name + ' ' + (d.city||'') + ' ' + (d.address||'')).toLowerCase();
+      if (!blob.includes(q)) return false;
+    }
+    return true;
+  });
+  document.getElementById('count').textContent =
+    `${filtered.length} dispensar${filtered.length !== 1 ? 'ies' : 'y'}`;
+  const grid = document.getElementById('grid');
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="empty">No dispensaries match your filter.</div>';
+    return;
+  }
+  const PLAT_COLORS = {
+    dutchie:'#6e40c9', carrot:'#e67e22', proteus:'#2980b9',
+    dispense:'#16a085', jane:'#c0392b', blaze:'#d35400',
+    weedmaps:'#27ae60', kushmart:'#8e44ad', goodlife:'#1abc9c'
+  };
+  grid.innerHTML = filtered.map(d => {
+    const color = PLAT_COLORS[d.platform] || '#555';
+    const addr = [d.address, d.city, d.state].filter(Boolean).join(', ');
+    const phone = d.phone ? `<span class="meta-item">📞 ${d.phone}</span>` : '';
+    const site = d.website_url ? `<span class="meta-item"><a href="${d.website_url}" target="_blank" onclick="event.stopPropagation()">Website</a></span>` : '';
+    const menu = d.menu_url ? `<span class="meta-item"><a href="${d.menu_url}" target="_blank" onclick="event.stopPropagation()">Menu</a></span>` : '';
+    return `<a class="card" href="/dispensary/${d.dispensary_id}">
+      <div class="card-header">
+        <div class="card-name">${d.name}</div>
+        <span class="plat-badge" style="color:${color};border-color:${color}22;background:${color}11">${d.platform}</span>
+      </div>
+      ${addr ? `<div class="card-addr">${addr}</div>` : ''}
+      <div class="card-meta">${phone}${site}${menu}</div>
+      ${d.product_count ? `<div class="product-count">${d.product_count} products in stock</div>` : ''}
+    </a>`;
+  }).join('');
+}
+
+loadDispensaries();
+</script>
+</body>
+</html>

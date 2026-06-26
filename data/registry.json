@@ -1,0 +1,578 @@
+[
+  {
+    "id": "devilslettuce",
+    "name": "Devil's Lettuce",
+    "platform": "blaze",
+    "url": "https://devilslettuce.net",
+    "external_id": "devilslettuce",
+    "enabled": true,
+    "blaze_store_id": "93903b1d-8fa9-4876-92d9-178e5a4b9080"
+  },
+  {
+    "id": "satisfiedmind",
+    "name": "Satisfied Mind",
+    "platform": "blaze",
+    "url": "https://satisfiedmind.co",
+    "external_id": "satisfiedmind",
+    "enabled": true,
+    "blaze_store_id": "4fb40ea7-90ed-40b6-b70c-4a2543d9117c"
+  },
+  {
+    "id": "canterra",
+    "name": "Canterra",
+    "platform": "dutchie",
+    "url": "https://canterra.co/",
+    "external_id": "64d2683c75332e0009f274f1",
+    "enabled": true
+  },
+  {
+    "id": "cannaspaceny",
+    "name": "CannaSpace NY",
+    "platform": "carrot",
+    "url": "https://cannaspaceny.com",
+    "external_id": "329:1",
+    "enabled": true,
+    "carrot_space_id": "329",
+    "carrot_location_id": "1",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  },
+  {
+    "id": "eastleaf",
+    "name": "East Leaf",
+    "platform": "carrot",
+    "url": "https://www.eastleafdispensary.com",
+    "external_id": "187:1",
+    "enabled": true,
+    "carrot_space_id": "187",
+    "carrot_location_id": "1",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  },
+  {
+    "id": "gp716",
+    "name": "GP 716",
+    "platform": "carrot",
+    "url": "https://shop.gp716.com",
+    "external_id": "267:1",
+    "enabled": true,
+    "carrot_space_id": "267",
+    "carrot_location_id": "1",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  },
+  {
+    "id": "premierearth",
+    "name": "Premier Earth",
+    "platform": "carrot",
+    "url": "https://premierearth.com",
+    "external_id": "307:1",
+    "enabled": true,
+    "carrot_space_id": "307",
+    "carrot_location_id": "1",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  },
+  {
+    "id": "tcvbuff",
+    "name": "TCV Buffalo",
+    "platform": "carrot",
+    "url": "https://tcvbuff.com",
+    "external_id": "326:1",
+    "enabled": true,
+    "carrot_space_id": "326",
+    "carrot_location_id": "1",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  },
+  {
+    "id": "thejoint",
+    "name": "The Joint",
+    "platform": "carrot",
+    "url": "https://thejointcannabisdispensary.com",
+    "external_id": "298:1",
+    "enabled": true,
+    "carrot_space_id": "298",
+    "carrot_location_id": "1",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  },
+  {
+    "id": "yeticanna",
+    "name": "Yeti Canna",
+    "platform": "carrot",
+    "url": "https://yeticanna.com",
+    "external_id": "260:1",
+    "enabled": true,
+    "carrot_space_id": "260",
+    "carrot_location_id": "1",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  },
+  {
+    "id": "dispense_390243df",
+    "name": "82-J Cannabis",
+    "platform": "dispense",
+    "url": "https://menus.dispenseapp.com/390243df4f0ee7fa/menu",
+    "external_id": "dispense_390243df",
+    "enabled": true,
+    "dispense_venue_id": "390243df4f0ee7fa"
+  },
+  {
+    "id": "dispense_0d177a4c",
+    "name": "Innocence Cannabis",
+    "platform": "dispense",
+    "url": "https://menus.dispenseapp.com/0d177a4c05c521ca/menu",
+    "external_id": "dispense_0d177a4c",
+    "enabled": true,
+    "dispense_venue_id": "0d177a4c05c521ca"
+  },
+  {
+    "id": "dispense_74422ea1",
+    "name": "Mrs. Green's",
+    "platform": "dispense",
+    "url": "https://menus.dispenseapp.com/74422ea119bfc60b/menu",
+    "external_id": "dispense_74422ea1",
+    "enabled": true,
+    "dispense_venue_id": "74422ea119bfc60b"
+  },
+  {
+    "id": "716cannabis-blasdell",
+    "name": "716 Cannabis - Blasdell",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "64c8f9e37f0cc30009df1a56",
+    "enabled": true
+  },
+  {
+    "id": "best-budz-146",
+    "name": "Best Budz - 146 St",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "67d863484420ce5c8c9897fd",
+    "enabled": true
+  },
+  {
+    "id": "dream-daze",
+    "name": "Dream Daze",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "66c62af455af03daeb800b12",
+    "enabled": true
+  },
+  {
+    "id": "happyleaf-union",
+    "name": "Happy Leaf Cannabis (Union Rd.)",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "5eb35ea6d26406015a313ce7",
+    "enabled": true
+  },
+  {
+    "id": "herbaliq-depew",
+    "name": "Herbal IQ - Depew",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "64878016c9f11d0016c78f1a",
+    "enabled": true
+  },
+  {
+    "id": "herbalwai",
+    "name": "Herbalwai",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "6595a01eb7704a00093afd02",
+    "enabled": true
+  },
+  {
+    "id": "high-tide",
+    "name": "High Tide",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "65a6d8a1539ea70009148288",
+    "enabled": true,
+    "dutchie_slug": "high-tide1"
+  },
+  {
+    "id": "king-of-budz-cheektowaga",
+    "name": "King of Budz - Cheektowaga",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "67a163c36974913902673fdc",
+    "enabled": true,
+    "dutchie_slug": "king-of-budz-walden"
+  },
+  {
+    "id": "kokoro-way-retail",
+    "name": "Kokoro Way - Retail",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "6835cc2b6ef4f620b1ab5e7d",
+    "enabled": true
+  },
+  {
+    "id": "leaf-plug-amherst",
+    "name": "Leaf Plug - Amherst",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "662ffb05e1e7c3b5d741e4d0",
+    "enabled": true
+  },
+  {
+    "id": "lovenug-northtonawanda",
+    "name": "Love Nug - North Tonawanda",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "67b4b2987a5d0e272f88f5fa",
+    "enabled": true
+  },
+  {
+    "id": "mammoth-cannabis",
+    "name": "Mammoth Cannabis",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "6674575e7531e65c8d1c3f4a",
+    "enabled": true
+  },
+  {
+    "id": "maryjanes-tonawanda",
+    "name": "Mary Jane's: A Legacy to Legal",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "6579bbae6e08400009da73cf",
+    "enabled": true
+  },
+  {
+    "id": "occ-wny",
+    "name": "Star Buds Buffalo",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "6595855102771e0009439283",
+    "enabled": true
+  },
+  {
+    "id": "secretgarden-716",
+    "name": "Secret Garden 716",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "660b3567aa62f1639856faa6",
+    "enabled": true
+  },
+  {
+    "id": "phinest-bud",
+    "name": "The Phinest Bud",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "66b68302e896e8056b1bced2",
+    "enabled": true
+  },
+  {
+    "id": "smokingbuffalo-amherst",
+    "name": "The Smoking Buffalo - Amherst",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "66fd45a7c7c2b14ad57c564f",
+    "enabled": true
+  },
+  {
+    "id": "treehead-culture",
+    "name": "TreeHead Culture",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "64e5132f421f8100098aed54",
+    "enabled": true
+  },
+  {
+    "id": "upstate-exotics",
+    "name": "Upstate Exotics",
+    "platform": "dutchie",
+    "url": null,
+    "external_id": "65e79227ac022d00098e5c8b",
+    "enabled": true
+  },
+  {
+    "id": "gocarryon",
+    "name": "Go Carry On",
+    "platform": "gapcommerce",
+    "url": "https://shop.gocarryon.com",
+    "external_id": "gocarryon",
+    "enabled": false
+  },
+  {
+    "id": "goodlifebuffalo",
+    "name": "The Good Life Buffalo",
+    "platform": "goodlife",
+    "url": "https://goodlifeweed.com/location/cannabis-dispensary-buffalo-ny/shop",
+    "external_id": "goodlifebuffalo",
+    "enabled": true,
+    "goodlife_location_id": "f65352d5-0fd4-4fdf-96c3-0045c318bbbd"
+  },
+  {
+    "id": "shopbuffalodreams",
+    "name": "Buffalo Dreams",
+    "platform": "jane",
+    "url": "https://shopbuffalodreams.com",
+    "external_id": "5876",
+    "enabled": true
+  },
+  {
+    "id": "stonedhouseny",
+    "name": "Stoned House NY",
+    "platform": "jane",
+    "url": "https://stonedhouseny.com",
+    "external_id": "6928",
+    "enabled": true
+  },
+  {
+    "id": "kushmart_lackawanna",
+    "name": "KushMart Lackawanna",
+    "platform": "kushmart",
+    "url": null,
+    "external_id": "kushmart_lackawanna",
+    "enabled": true,
+    "kushmart_url": "https://kushmart.com/location/lackawanna-ny/shop"
+  },
+  {
+    "id": "kushmart_lancaster",
+    "name": "KushMart Lancaster",
+    "platform": "kushmart",
+    "url": null,
+    "external_id": "kushmart_lancaster",
+    "enabled": true,
+    "kushmart_url": "https://kushmart.com/location/lancaster-ny/shop"
+  },
+  {
+    "id": "honeykenmore",
+    "name": "Honey Kenmore",
+    "platform": "proteus",
+    "url": null,
+    "external_id": "nickelcitygreen",
+    "enabled": true,
+    "proteus_type": "cloud2",
+    "proteus_host": "https://cloud2.proteuserp.com"
+  },
+  {
+    "id": "tcsbflo",
+    "name": "TCS Buffalo",
+    "platform": "proteus",
+    "url": null,
+    "external_id": "tcsbflo.com",
+    "enabled": true,
+    "proteus_type": "standalone",
+    "proteus_host": "https://tcsbflo.com/cart"
+  },
+  {
+    "id": "tokelane",
+    "name": "Toke Lane",
+    "platform": "proteus",
+    "url": null,
+    "external_id": "1153:1",
+    "enabled": true,
+    "proteus_type": "hosted",
+    "proteus_host": "https://cart.tokelane.com"
+  },
+  {
+    "id": "82j",
+    "name": "82-J Cannabis",
+    "platform": "weedmaps",
+    "url": "https://82-j.wm.store",
+    "external_id": "82j",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "aroma-cannabis",
+    "name": "Aroma Cannabis",
+    "platform": "weedmaps",
+    "url": "https://aroma-cannabis.wm.store",
+    "external_id": "aroma-cannabis",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "dank716",
+    "name": "Dank 716",
+    "platform": "weedmaps",
+    "url": "https://dank-716.wm.store",
+    "external_id": "dank716",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "devils-lettuce-ws",
+    "name": "Devils Lettuce (West Seneca)",
+    "platform": "weedmaps",
+    "url": "https://devils-lettuce-llc-1.wm.store",
+    "external_id": "devils-lettuce-ws",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "enchanted-mountains",
+    "name": "Enchanted Mountains Canna Company",
+    "platform": "dutchie",
+    "url": "https://enchantedmountainscannaco.com/",
+    "external_id": "664553d9fd37589e81286544",
+    "enabled": true
+  },
+  {
+    "id": "etherbuffalo",
+    "name": "Ether Buffalo",
+    "platform": "weedmaps",
+    "url": "https://etherbuffalo.wm.store",
+    "external_id": "etherbuffalo",
+    "enabled": true,
+    "weedmaps_slug": "ether"
+  },
+  {
+    "id": "green-philosophy-716",
+    "name": "Green Philosophy 716",
+    "platform": "weedmaps",
+    "url": "https://green-philosophy-716.wm.store",
+    "external_id": "green-philosophy-716",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "high-tide-ny",
+    "name": "High Tide - NY",
+    "platform": "weedmaps",
+    "url": "https://high-tide-ny.wm.store",
+    "external_id": "high-tide-ny",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "king-of-budz-buffalo",
+    "name": "King of Budz - Buffalo",
+    "platform": "weedmaps",
+    "url": "https://king-of-budz-3.wm.store",
+    "external_id": "king-of-budz-buffalo",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "mrs-greens-cannary",
+    "name": "Mrs Greens Cannary",
+    "platform": "weedmaps",
+    "url": "https://mrs-greens-cannary.wm.store",
+    "external_id": "mrs-greens-cannary",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "peace-love-bud",
+    "name": "Peace, Love, & Bud",
+    "platform": "dutchie",
+    "url": "https://www.plbud.com/",
+    "external_id": "66229844b170928ed0901c3c",
+    "enabled": true
+  },
+  {
+    "id": "phenos-new-york",
+    "name": "Phenos New York",
+    "platform": "weedmaps",
+    "url": "https://phenos-new-york.wm.store",
+    "external_id": "phenos-new-york",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "public-flower",
+    "name": "Public Flower",
+    "platform": "dutchie",
+    "url": "https://publicflower.co/",
+    "external_id": "6569f41c44db8e0009709faf",
+    "enabled": true
+  },
+  {
+    "id": "star-buds-buffalo",
+    "name": "Star Buds Buffalo",
+    "platform": "weedmaps",
+    "url": "https://star-buds-buffalo.wm.store",
+    "external_id": "star-buds-buffalo",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "upstate-exotics-nf",
+    "name": "Upstate Exotics (Niagara Falls)",
+    "platform": "weedmaps",
+    "url": "https://upstate-exotics-llc.wm.store",
+    "external_id": "upstate-exotics-nf",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "verilife-buffalo",
+    "name": "Verilife - Buffalo",
+    "platform": "weedmaps",
+    "url": "https://verilife-buffalo.wm.store",
+    "external_id": "verilife-buffalo",
+    "enabled": false,
+    "note": "weedmaps marketplace listing only; not their real menu platform (disabled to avoid duplicates)"
+  },
+  {
+    "id": "nativa-cannabis",
+    "name": "Nativa Cannabis",
+    "platform": "dutchie",
+    "url": "https://www.nativacannabis.com/",
+    "external_id": "63b8482c60e0950086ff19ea",
+    "enabled": true
+  },
+  {
+    "id": "jupiter-cafe",
+    "name": "Jupiter Cafe",
+    "platform": "dutchie",
+    "url": "https://jupitercafe.store/",
+    "external_id": "6595a53e34343d00092a046f",
+    "enabled": true
+  },
+  {
+    "id": "high-cloudz",
+    "name": "High Cloudz",
+    "platform": "dutchie",
+    "url": "https://highcloudzcannabis.com/",
+    "external_id": "680f91f53454d794a2625f8b",
+    "enabled": true
+  },
+  {
+    "id": "buffalo-kind",
+    "name": "Buffalo Kind",
+    "platform": "dutchie",
+    "url": "https://buffalokind.com/",
+    "external_id": "6644f7702fde4d76a2319c4e",
+    "enabled": true
+  },
+  {
+    "id": "happytimes-buffalo",
+    "name": "Happy Times Cannabis (Buffalo)",
+    "platform": "dutchie",
+    "url": "https://happytimescannabis.com/",
+    "external_id": "67196f2c8c7ea2c66ca086b5",
+    "enabled": true
+  },
+  {
+    "id": "happytimes-niagara",
+    "name": "Happy Times Cannabis (Niagara Falls)",
+    "platform": "dutchie",
+    "url": "https://happytimescannabis.com/",
+    "external_id": "67e1a51029e4d49c31862c05",
+    "enabled": true
+  },
+  {
+    "id": "greenside-cannabis",
+    "name": "Greenside Cannabis",
+    "platform": "carrot",
+    "url": "https://greensidecannabis.com/",
+    "external_id": "371:1",
+    "enabled": true,
+    "carrot_space_id": "371",
+    "carrot_location_id": "1",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  },
+  {
+    "id": "eastleaf-eastaurora",
+    "name": "East Leaf (East Aurora)",
+    "platform": "carrot",
+    "url": "https://www.eastleafdispensary.com/",
+    "external_id": "187:2",
+    "enabled": true,
+    "carrot_space_id": "187",
+    "carrot_location_id": "2",
+    "carrot_api_base": "https://api.nevada.getcarrot.io/api/v1"
+  }
+]
